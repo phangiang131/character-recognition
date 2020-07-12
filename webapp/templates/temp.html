@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+       <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="static/main.css">
+
+        <title>Animeprojectx</title>
+    </head>
+    <body class="bg-light">
+	<div class="container">
+	    <div class="py-5 text-center">
+                <h2><b>Anime Characters Recognition 0.1.0</b></h2>    
+            </div>
+        
+        <div>Nhận diện hầu hết các khuôn mặt có trong <a href="/lists">danh sách </a>các bộ anime sau</div>
+	    <div class="col-md-8">
+                <h4 class="mb-3">Upload Image</h4>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="col-md-6 md-3">
+                        <input type="file" name="uploaded_image" accept="image/*">
+                        <small class="text-muted">Accepted mime-type: image/jpeg, image/png</small>
+                    </div>
+		    <hr class="mb-4">
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Upload</button>
+                </form>
+	    </div>
+
+            
+            <footer class="my-5 pt-5 text-muted text-center text-small">
+
+            </footer>
+        </div>
+
+    </body>
+</html>

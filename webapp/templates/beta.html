@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="static/main.css">
+    <style>
+        #canvas {
+            width: 300px;
+            height: 0px;
+        }
+        
+        .rectangle {
+            border: 1px solid #FF0000;
+            position: absolute;
+        }
+    </style>
+    <title>Animeprojectx</title>
+</head>
+
+<body style="background-color:black;color:orange;" >
+    <div class="container">
+        <div class="col-md-8">
+            <h4 class="mb-3">Upload Image</h4>
+            <form method="POST" enctype="multipart/form-data">
+                
+                    <input type="file" name="uploaded_image" accept="image/*" onchange="loadFile(event)">
+                    
+                    <input name="uploaded_bb" type="hidden" id='upload_bb' value =""><br>
+                    <small class="text-muted">Accepted mime-type: image/jpeg, image/png</small>
+                
+
+                    <button class="btn btn-primary btn-lg btn-block" onclick="myFunction()" type="submit">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="canvas">
+        <img src="" id="img">
+    </div>
+    <script>
+        initDraw(document.getElementById('canvas'));
+
+        var can =document.getElementById('canvas');
+        //can.style.height = window.innerHeight - 150;
+
+
+        var loadFile = function(event) {
+            var myImg = document.getElementById('img');
+            myImg.src = URL.createObjectURL(event.target.files[0]);
+
+            var img = new Image();
+
+            img.onload = function() {
+
+                myFunction();
+
+
+                var elements = document.getElementsByClassName('rectangle');
+                while (elements.length > 0) {
+                    elements[0].parentNode.removeChild(elements[0]);
+                }
+                var height = img.height;
+                var width = img.width;
+
+                img_height = window.innerHeight - 150
+                img_width = img_height / height * width;
+                if (img_width > window.innerWidth) {
+                    img_width = window.innerWidth;
+                    img_height = img_width / width * height;
+                }
+                myImg.height = img_height;
+                myImg.width = img_width;
+                var canvas = document.getElementById('canvas');
+                canvas.style.height = img_height;
+                canvas.style.width = img_width;
+            }
+
+            img.src = myImg.src;
+
+
+        };
+
+
+        function initDraw(canvas) {
+            function setMousePosition(e) {
+                var ev = e || window.event; //Moz || IE
+                if (ev.pageX) { //Moz
+                    mouse.x = ev.pageX + window.pageXOffset;
+                    mouse.y = ev.pageY + window.pageYOffset;
+                } else if (ev.clientX) { //IE
+                    mouse.x = ev.clientX + document.body.scrollLeft;
+                    mouse.y = ev.clientY + document.body.scrollTop;
+                }
+            };
+
+            var mouse = {
+                x: 0,
+                y: 0,
+                startX: 0,
+                startY: 0
+            };
+            var element = null;
+
+            canvas.onmousemove = function(e) {
+                setMousePosition(e);
+                if (element !== null) {
+                    element.style.width = Math.abs(mouse.x - mouse.startX) + 'px';
+                    element.style.height = Math.abs(mouse.y - mouse.startY) + 'px';
+                    element.style.left = (mouse.x - mouse.startX < 0) ? mouse.x + 'px' : mouse.startX + 'px';
+                    element.style.top = (mouse.y - mouse.startY < 0) ? mouse.y + 'px' : mouse.startY + 'px';
+                }
+            }
+
+            canvas.onclick = function(e) {
+                if (element !== null) {
+                    element = null;
+                    canvas.style.cursor = "default";
+                    console.log("finsihed.");
+                } else {
+                    console.log("begun.");
+                    mouse.startX = mouse.x;
+                    mouse.startY = mouse.y;
+                    element = document.createElement('div');
+                    element.className = 'rectangle'
+                    element.style.left = mouse.x + 'px';
+                    element.style.top = mouse.y + 'px';
+                    canvas.appendChild(element)
+                    canvas.style.cursor = "crosshair";
+                }
+            }
+        }
+
+        function myFunction() {
+            var result = "";
+            var myImg = document.getElementById('img');
+            result = myImg.offsetLeft + 'px' + myImg.offsetTop + 'px' + myImg.width + 'px' + myImg.height + 'px';
+            var element = document.getElementsByClassName('rectangle');
+
+            for (i = 0; i < element.length; i++) {
+                result = result + element[i].style.left + element[i].style.top + element[i].style.width + element[i].style.height;
+            }
+            document.getElementById("upload_bb").value = result;
+        }
+    </script>
+</body>
+
+</html>

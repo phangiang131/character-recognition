@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Project Anime X</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+    <!-- HEADER START-->
+    <header id="header">
+        <div class="content">
+            <div id="logo"><a href="#home">NON-OTAKU GROUP </a></div>
+            <nav id="nav">
+                <ul id="slidenav">
+                    <li><a href="#home" class="active" title="Oxana Web">Home</a></li>
+                    <li><a href="#about" title="About">Search</a></li>
+                    <li><a href="#services" title="Services">Tutorial</a></li>
+                    
+                    <li><a href="#contact" title="Contact">Contact</a></li>
+                </ul>
+                <ul id="slidenavdesktop">
+                    <li><a href="#home" class="active" title="Next Section">Home</a></li>
+                    <li><a href="#about" title="Next Section">Search</a></li>
+                    <li><a href="#services" title="Next Section">Tutorial</a></li>
+                    
+                    <li><a href="#contact" title="Next Section">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- SLIDES START -->
+    <div id="home">
+        <div class="content">
+            <h1><strong>ANIME FINDER</strong></h1>
+            <b>Finding any Anime Characters by Images</b>
+            <br/>
+            <br/>
+            <img src="https://storage.googleapis.com/animeprojectx.appspot.com/rem.jfif" alt="Smiley face" width="165" >
+            <div id="divider"> </div>
+
+            <a href="#about">
+                <div id="button">
+                    <h3>START</h3>
+                </div>
+            </a>
+            <div id="arrow"></div>
+        </div>
+    </div>
+    <div id="about">
+        <div class="uploadArea">
+            <div class="col-md-8">
+                <h4 class="mb-3">Upload Image</h4>
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="col-md-6 md-3">
+                        <input type="file" name="uploaded_image" accept="image/*" onchange="loadFile(event)">
+                        <div><small class="text-muted">Accepted mime-type: image/jpeg, image/png</small></div>
+                    </div>
+                    
+                    <button class="btn btn-primary btn-lg btn-block" type="submit">Upload</button>
+                </form>
+            </div>
+            <img id="img">
+        </div>
+    </div>
+    <div id="services">
+        <div class="content">
+            <div class="quotes_container">
+                <p class="quotes">Ứng dụng hỗ trợ tìm kiếm các nhân vật anime thông qua khuôn mặt.</p>
+                <p class="quotes">Ấn nút <b class = "redtext">Chọn tệp</b>, chọn ảnh rồi bấm <b class = "redtext">Upload</b>. Đợi 40s đến 1p là web sẽ trả về top 5 nhân vật gần giống nhất kèm thêm 1 số thông tin của nhân vật.</p>
+                
+                <p class="quotes">Hiện tại ứng dụng có thể nhận diện khoảng 550 nhân vật của các bộ trong <a href="/lists" class = "redtext"><u>danh sách</u></a> với độ chính xác là 98% (trong điều kiện tốt nhất), ảnh có một hoặc nhiều nhân vật đều dùng được. </p>
+                <p class="quotes">Bên cạnh các ảnh chứa các nhân vật trong anime, ứng dụng cũng có thể nhận diện nhân vật thông qua fan art, figure, cosplay,... nhưng với độ chính xác thấp hơn. </p>
+                <p class="quotes">Hướng dẫn sử dụng <a href="https://animeprojectx.appspot.com/beta" class = "redtext"><u>phiên bản beta</u></a>: </p>
+                <p class="quotes">- Phiên bản beta giúp dùng người dùng tạo khung chứa khuôn mặt rồi upload. Nhờ vậy mà độ chính xác tăng đáng kể và thời gian xuống khoảng 20s. Nhưng do dùng hơi bất tiện nên có tên là beta :v. </p>
+                <p class="quotes">- Ấn nút <b class = "redtext">Chọn tệp</b>, rồi chọn ảnh. Sau đó ảnh sẽ hiện lên trên trình duyệt. Người dùng click vào ảnh để tạo các khung chứa khuôn mặt cần nhận diện(có thể 1 hoặc nhiều khung) rồi ấn <b class = "redtext">Upload</b>. </p>
+                <p class="quotes">- Nếu muốn dùng tiếp thì người dùng phải <b class = "redtext">reload</b> lại trang. </p>
+                
+            </div>
+        </div>
+    </div>
+
+    <div id="contact">
+        <div class="content">
+            <div class="contact_container">
+
+
+                
+                <div id="social">
+                    <a class="facebookBtn smGlobalBtn" href="https://www.facebook.com/thegiang.phan"></a>
+
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+    <!-- SLIDES END -->
+</body>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="/static/style_x.css">
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+<script>
+    var loadFile = function(event) {
+        var output = document.getElementById('img');
+        output.src = URL.createObjectURL(event.target.files[0]);
+        var img = new Image();
+        img.src = output.src;
+        img.onload = function() {
+            var height = img.height;
+            var width = img.width;
+            document.getElementById("about").style.height = height + 300 + "px";
+            // code here to use the dimensions
+        }
+        console.log(height);
+    };
+</script>
+
+</html>
